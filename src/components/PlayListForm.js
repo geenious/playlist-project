@@ -13,29 +13,37 @@ class PlayListForm extends Component {
     }
   }
 
-  nameChange(evt) {
-    this.setState({
-      userName: evt.target.value
-    });
+  // nameChange(evt) {
+  //   this.setState({
+  //     userName: evt.target.value
+  //   });
+  // }
+  //
+  // artistChange(evt) {
+  //   this.setState({
+  //     songArtist: evt.target.value
+  //   });
+  // }
+  //
+  // titleChange(evt) {
+  //   this.setState({
+  //     songTitle: evt.target.value
+  //   });
+  // }
+  //
+  // notesChange(evt) {
+  //   this.setState({
+  //     songNotes: evt.target.value
+  //   });
+  // }
+
+  inputChange(evt, key) {
+    const obj = this.state;
+    obj[key] = evt.target.value;
+
+    this.setState(obj);
   }
 
-  artistChange(evt) {
-    this.setState({
-      songArtist: evt.target.value
-    });
-  }
-
-  titleChange(evt) {
-    this.setState({
-      songTitle: evt.target.value
-    });
-  }
-
-  notesChange(evt) {
-    this.setState({
-      songNotes: evt.target.value
-    });
-  }
 
 
 
@@ -72,13 +80,13 @@ class PlayListForm extends Component {
       <form className='form' method='post'>
 
           <label>User Name</label>
-          <input value={this.state.userName} onChange={(evt) => this.nameChange(evt)}/>
+          <input value={this.state.userName} onChange={(evt) => this.inputChange(evt, 'userName')}/>
           <label>Artist/Band</label>
-          <input value={this.state.songArtist} onChange={(evt) => this.artistChange(evt)}/>
+          <input value={this.state.songArtist} onChange={(evt) => this.inputChange(evt, 'songArtist')}/>
           <label>Song Title</label>
-          <input value={this.state.songTitle} onChange={(evt) => this.titleChange(evt)}/>
+          <input value={this.state.songTitle} onChange={(evt) => this.inputChange(evt, 'songTitle')}/>
           <label>Song Notes</label>
-          <input value={this.state.songNotes} onChange={(evt) => this.notesChange(evt)}/>
+          <input value={this.state.songNotes} onChange={(evt) => this.inputChange(evt, 'songNotes')}/>
           <button onClick={this.addToList}>submit</button>
 
       </form>

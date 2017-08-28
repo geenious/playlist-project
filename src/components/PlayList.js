@@ -34,7 +34,9 @@ class PlayList extends Component {
   render() {
     return (
       <div className='playlist'>
-        <button onClick={() => this.fetchData()}>Reload Playlist</button>
+        <div className='reload'>
+          <button onClick={() => this.fetchData()}>Reload Playlist</button>
+        </div>
         {this.state.songs.map((song) => {
           return (
             <PlayListItem key={song._id} song={song} />
