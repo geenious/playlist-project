@@ -13,39 +13,12 @@ class PlayListForm extends Component {
     }
   }
 
-  // nameChange(evt) {
-  //   this.setState({
-  //     userName: evt.target.value
-  //   });
-  // }
-  //
-  // artistChange(evt) {
-  //   this.setState({
-  //     songArtist: evt.target.value
-  //   });
-  // }
-  //
-  // titleChange(evt) {
-  //   this.setState({
-  //     songTitle: evt.target.value
-  //   });
-  // }
-  //
-  // notesChange(evt) {
-  //   this.setState({
-  //     songNotes: evt.target.value
-  //   });
-  // }
-
   inputChange(evt, key) {
     const obj = this.state;
     obj[key] = evt.target.value;
 
     this.setState(obj);
   }
-
-
-
 
   addToList = (e) => {
     e.preventDefault();
@@ -77,19 +50,21 @@ class PlayListForm extends Component {
 
   render() {
     return (
-      <form className='form' method='post'>
+      <div className='divform'>
+        <form className='form' method='post'>
 
-          <label>User Name</label>
-          <input value={this.state.userName} onChange={(evt) => this.inputChange(evt, 'userName')}/>
-          <label>Artist/Band</label>
-          <input value={this.state.songArtist} onChange={(evt) => this.inputChange(evt, 'songArtist')}/>
-          <label>Song Title</label>
-          <input value={this.state.songTitle} onChange={(evt) => this.inputChange(evt, 'songTitle')}/>
-          <label>Song Notes</label>
-          <input value={this.state.songNotes} onChange={(evt) => this.inputChange(evt, 'songNotes')}/>
-          <button onClick={this.addToList}>submit</button>
+            <label>User Name</label>
+            <input value={this.state.userName} onChange={(evt) => this.inputChange(evt, 'userName')}/>
+            <label>Artist/Band</label>
+            <input value={this.state.songArtist} onChange={(evt) => this.inputChange(evt, 'songArtist')}/>
+            <label>Song Title</label>
+            <input value={this.state.songTitle} onChange={(evt) => this.inputChange(evt, 'songTitle')}/>
+            <label>Song Notes</label>
+            <input value={this.state.songNotes} onChange={(evt) => this.inputChange(evt, 'songNotes')}/>
+            <button onClick={this.addToList}>submit</button>
 
-      </form>
+        </form>
+      </div>
     )
   }
 }
